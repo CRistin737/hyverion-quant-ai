@@ -25,7 +25,7 @@ from urllib.robotparser import RobotFileParser
 
 import httpx
 
-DEFAULT_USER_AGENT = "HyverionQuantAI/0.2"
+DEFAULT_USER_AGENT = "HyverionQuantAI/0.1"
 MAX_BODY_BYTES = 8 * 1024 * 1024
 
 
