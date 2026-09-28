@@ -93,8 +93,8 @@ queda en <https://cristin737.github.io/hyverion-quant-ai>.
 ## 6. Publicar una versión de la app
 
 Pestaña **Actions › Release › Run workflow**, escribe la versión (por ejemplo
-`0.2.0`). El workflow compila la app de macOS y crea un **borrador** de release
-`v0.2.0` con el `.dmg`. Revisa el borrador y pulsa **Publish release**.
+`0.1.0`). El workflow compila la app de macOS y crea un **borrador** de release
+`v0.1.0` con el `.dmg`. Revisa el borrador y pulsa **Publish release**.
 
 La app **no está firmada ni notarizada** por Apple; las notas de la versión lo
 avisan y explican cómo abrirla.
