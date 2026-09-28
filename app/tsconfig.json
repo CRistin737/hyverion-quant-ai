@@ -14,8 +14,7 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "types": ["vite/client", "vitest/globals", "node"],
-    "baseUrl": ".",
-    "paths": { "@/*": ["src/*"] }
+    "paths": { "@/*": ["./src/*"] }
   },
   "include": ["src", "vite.config.ts"]
 }

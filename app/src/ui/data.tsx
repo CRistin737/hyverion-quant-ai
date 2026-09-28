@@ -1,10 +1,18 @@
 import {
+  createSortedRowModel,
   flexRender,
-  getCoreRowModel,
-  getSortedRowModel,
-  useReactTable,
+  rowSortingFeature,
+  sortFn_alphanumeric,
+  sortFn_basic,
+  sortFn_datetime,
+  sortFn_text,
+  tableFeatures,
+  useTable,
+  type CellData,
   type ColumnDef,
+  type RowData,
   type SortingState,
+  type TableFeatures,
 } from "@tanstack/react-table";
 import { ArrowDown, ArrowUp } from "lucide-react";
 import { useState, type ReactNode } from "react";
@@ -83,8 +91,19 @@ export function KeyValue({ items, className }: { items: Array<{ label: string; v
   );
 }
 
-export interface DataTableProps<T> {
-  columns: ColumnDef<T, unknown>[];
+/*
+ * Table features (TanStack Table v9 makes them opt-in): sortable columns only.
+ * Only the sort functions "auto" can pick are registered, to keep the bundle small.
+ */
+const features = tableFeatures({
+  rowSortingFeature,
+  sortedRowModel: createSortedRowModel(),
+  sortFns: { alphanumeric: sortFn_alphanumeric, basic: sortFn_basic, datetime: sortFn_datetime, text: sortFn_text },
+});
+type Features = typeof features;
+
+export interface DataTableProps<T extends RowData> {
+  columns: ColumnDef<Features, T, unknown>[];
   data: T[];
   loading?: boolean;
   empty?: ReactNode;
@@ -97,11 +116,11 @@ export interface DataTableProps<T> {
 }
 
 declare module "@tanstack/react-table" {
-  interface ColumnMeta<TData, TValue> {
+  interface ColumnMeta<TFeatures extends TableFeatures, TData extends RowData, TValue extends CellData = CellData> {
     align?: "left" | "right";
     className?: string;
     hideBelow?: "lg" | "xl";
-    _?: [TData, TValue];
+    _?: [TFeatures, TData, TValue];
   }
 }
 
@@ -109,15 +128,14 @@ declare module "@tanstack/react-table" {
  * Data table: sticky header, sortable columns, right-aligned numbers,
  * keyboard-activatable rows, skeleton and empty states.
  */
-export function DataTable<T>({ columns, data, loading, empty, onRowClick, selectedId, getRowId, maxHeight, dense = false, label }: DataTableProps<T>) {
+export function DataTable<T extends RowData>({ columns, data, loading, empty, onRowClick, selectedId, getRowId, maxHeight, dense = false, label }: DataTableProps<T>) {
   const [sorting, setSorting] = useState<SortingState>([]);
-  const table = useReactTable({
+  const table = useTable({
+    features,
     data,
     columns,
     state: { sorting },
     onSortingChange: setSorting,
-    getCoreRowModel: getCoreRowModel(),
-    getSortedRowModel: getSortedRowModel(),
     getRowId: getRowId ? (row) => getRowId(row) : undefined,
   });
 
@@ -192,7 +210,7 @@ export function DataTable<T>({ columns, data, loading, empty, onRowClick, select
                   selected && "bg-surface-3 hover:bg-surface-3",
                 )}
               >
-                {row.getVisibleCells().map((cell) => {
+                {row.getAllCells().map((cell) => {
                   const meta = cell.column.columnDef.meta;
                   return (
                     <td
