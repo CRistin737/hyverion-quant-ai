@@ -60,7 +60,7 @@ providers = [
 ]
 dev = [
   "hypothesis>=6.120,<7",
-  "mypy>=1.14,<2",
+  "mypy>=1.14,<3",
   "pytest>=8.3,<10",
   "pytest-asyncio>=0.25,<2",
   "pytest-cov>=6,<8",
