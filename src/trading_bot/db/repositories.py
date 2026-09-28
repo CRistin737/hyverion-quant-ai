@@ -267,5 +267,5 @@ class AuditRepository:
             func.date(model_usage.c.created_at) == session_date
         )
         async with self._database.engine.connect() as connection:
-            value = (await connection.execute(statement)).scalar_one()
+            value: object = (await connection.execute(statement)).scalar_one()
         return Decimal(str(value or 0))
