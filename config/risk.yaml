@@ -1,0 +1,42 @@
+# Risk for PAPER in the professional-trader layout (profiles, not dollar caps).
+# Percentages are of the broker account equity (Alpaca Paper). The profile
+# values live in src/trading_bot/config/risk_profiles.py; editing a value here
+# or from the app switches the profile to "personalizado".
+# Every tunable value must stay inside the envelope in config/autonomy.yaml.
+risk:
+  profile: medio
+  base_risk_percent: 0.5
+  max_base_risk_usd: null
+  daily_loss_percent: 2
+  daily_loss_hard_cap_usd: null
+  weekly_loss_percent: 5
+  weekly_loss_hard_cap_usd: null
+  max_profit_giveback_percent: 35
+  max_positions: 3
+  max_total_exposure_percent: 100
+  max_asset_exposure_percent: 100
+  max_correlated_risk_percent: 2
+  max_spread_bps: 20
+  max_slippage_bps: 15
+  min_liquidity_usd: 100000
+  max_losing_streak: 3
+  cooldown_minutes_after_loss: 30
+  max_account_drawdown_percent: 10
+  daily_profit_hard_cap_usd: null
+  # US equity session limits.
+  max_trades_per_day: 10
+  opening_no_trade_minutes: 5
+  eod_flatten_minutes_before_close: 10
+  # Window around HIGH macro events (FOMC, CPI, NFP, PCE, GDP advance).
+  # Blocks in supervised mode; recorded as context in paper_autonomous mode.
+  macro_pre_block_minutes: 15
+  macro_post_cooldown_minutes: 15
+  macro_calendar_max_age_hours: 168
+  # Profit protection in percent of equity: as the day's gain grows, size
+  # shrinks and part of the gain is protected. No martingale in either direction.
+  ladder:
+    - {level: 0, minimum_pnl_percent: 0, maximum_pnl_percent: 1, risk_multiplier: 1.0, minimum_score: 65, minimum_confirmations: 2, protected_fraction: 0}
+    - {level: 1, minimum_pnl_percent: 1, maximum_pnl_percent: 2, risk_multiplier: 0.75, minimum_score: 70, minimum_confirmations: 3, protected_fraction: 0.40}
+    - {level: 2, minimum_pnl_percent: 2, maximum_pnl_percent: 3, risk_multiplier: 0.50, minimum_score: 75, minimum_confirmations: 3, protected_fraction: 0.50}
+    - {level: 3, minimum_pnl_percent: 3, maximum_pnl_percent: 4, risk_multiplier: 0.35, minimum_score: 80, minimum_confirmations: 4, protected_fraction: 0.60}
+    - {level: 4, minimum_pnl_percent: 4, maximum_pnl_percent: 100, risk_multiplier: 0.25, minimum_score: 85, minimum_confirmations: 4, protected_fraction: 0.70}

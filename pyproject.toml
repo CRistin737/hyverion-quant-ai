@@ -1,0 +1,139 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "hyverion-quant-ai"
+version = "0.2.0"
+description = "Hyverion Quant AI financial intelligence and paper-trading platform"
+readme = "README.md"
+license = "Apache-2.0"
+authors = [{ name = "Cristian Santos" }]
+requires-python = ">=3.12,<3.14"
+keywords = ["trading", "paper-trading", "quant", "ai-agents", "risk-management", "qqq"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Financial and Insurance Industry",
+  "Operating System :: MacOS",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Office/Business :: Financial :: Investment",
+  "Typing :: Typed",
+]
+dependencies = [
+  "alembic>=1.14,<2",
+  "aiosqlite>=0.20,<1",
+  "duckdb>=1.1,<2",
+  "defusedxml>=0.7,<1",
+  "fastapi>=0.115,<1",
+  "greenlet>=3.1,<4",
+  "httpx>=0.28,<1",
+  "jinja2>=3.1,<4",
+  "keyring>=25,<27",
+  "prometheus-client>=0.21,<1",
+  "pyarrow>=18,<24",
+  "pydantic>=2.10,<3",
+  "pydantic-settings>=2.7,<3",
+  "pyyaml>=6.0,<7",
+  "rich>=13.9,<15",
+  "sqlalchemy>=2.0,<3",
+  "structlog>=24.4,<27",
+  "tenacity>=9,<10",
+  "typer>=0.15,<1",
+  "uvicorn>=0.34,<1",
+  "websockets>=14,<17",
+  "exchange-calendars>=4.5",
+]
+
+[project.optional-dependencies]
+desktop-build = [
+  "pyinstaller>=6.11,<7",
+]
+providers = [
+  "anthropic>=0.42,<1",
+  "google-genai>=1,<2",
+  "openai>=1.59,<3",
+]
+dev = [
+  "hypothesis>=6.120,<7",
+  "mypy>=1.14,<2",
+  "pytest>=8.3,<10",
+  "pytest-asyncio>=0.25,<2",
+  "pytest-cov>=6,<8",
+  "respx>=0.22,<1",
+  "ruff>=0.9,<1",
+  "types-pyyaml>=6.0,<7",
+  "types-defusedxml>=0.7,<1",
+]
+memory = [
+  "asyncpg>=0.30,<1",
+  "redis>=5.2,<7",
+]
+embeddings = [
+  "onnxruntime>=1.20,<2",
+]
+
+[project.urls]
+Homepage = "https://cristin737.github.io/hyverion-quant-ai"
+Repository = "https://github.com/CRistin737/hyverion-quant-ai"
+Issues = "https://github.com/CRistin737/hyverion-quant-ai/issues"
+Security = "https://github.com/CRistin737/hyverion-quant-ai/security/policy"
+
+[project.scripts]
+trading-bot = "trading_bot.main:app"
+hyverion-quant-ai = "trading_bot.main:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/trading_bot"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers --strict-config"
+asyncio_mode = "auto"
+testpaths = ["tests"]
+markers = [
+  "network: requires public network access",
+  "sandbox: requires exchange sandbox credentials",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+extend-exclude = [".claude", "app", "src-tauri"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "ASYNC", "S", "RUF"]
+ignore = ["S101"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["trading_bot"]
+plugins = ["pydantic.mypy"]
+
+# Optional extras (`embeddings`, `memory`) are imported lazily and may be absent in CI.
+[[tool.mypy.overrides]]
+module = ["numpy", "numpy.*", "onnxruntime", "onnxruntime.*", "redis", "redis.*", "exchange_calendars", "exchange_calendars.*", "pandas", "pandas.*"]
+ignore_missing_imports = true
+
+[tool.coverage.run]
+branch = true
+source = ["trading_bot"]
+# Vendor SDK and CLI process boundaries are covered by contract/integration checks;
+# they are intentionally not part of the offline deterministic coverage gate.
+omit = [
+  "src/trading_bot/__main__.py",
+  "src/trading_bot/main.py",
+  "src/trading_bot/providers/anthropic.py",
+  "src/trading_bot/providers/gemini.py",
+  "src/trading_bot/providers/openai.py",
+  "src/trading_bot/providers/xai.py",
+]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 80

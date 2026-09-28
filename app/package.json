@@ -1,0 +1,51 @@
+{
+  "name": "hyverion-desktop",
+  "private": true,
+  "license": "Apache-2.0",
+  "version": "0.2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:visual": "playwright test",
+    "tauri": "tauri",
+    "icons": "node scripts/build-icons.mjs",
+    "build:core": "bash scripts/build-core.sh",
+    "build:app": "bash scripts/build-core.sh && tauri build --config src-tauri/tauri.release.conf.json",
+    "test:e2e": "playwright test --project=1440x900 --grep-invert \"renders without errors|first run shows onboarding\""
+  },
+  "dependencies": {
+    "@fontsource-variable/geist": "^5.3.0",
+    "@fontsource-variable/geist-mono": "^5.3.0",
+    "@tanstack/react-query": "^5.103.2",
+    "@tanstack/react-table": "^8.21.3",
+    "@tauri-apps/api": "^2.11.1",
+    "cmdk": "^1.1.1",
+    "lightweight-charts": "^5.2.1",
+    "lucide-react": "^1.48.0",
+    "radix-ui": "^1.6.7",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "wouter": "^3.11.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@resvg/resvg-js": "^2.6.2",
+    "@tailwindcss/vite": "^4.3.3",
+    "@tauri-apps/cli": "^2.11.5",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@types/node": "^26.6.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "jsdom": "^30.1.1",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~5.9.3",
+    "vite": "^8.3.1",
+    "vitest": "^5.0.1"
+  },
+  "packageManager": "pnpm@12.6.0"
+}

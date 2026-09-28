@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Hyverion Quant AI">
+  <!-- Single-colour mark for light backgrounds, favicons and embossing. -->
+  <g fill="currentColor">
+    <rect x="10" y="10" width="10" height="44" rx="1"/>
+    <rect x="44" y="10" width="10" height="44" rx="1"/>
+    <rect x="30.75" y="17" width="2.5" height="30"/>
+    <rect x="26" y="25" width="12" height="14" rx="1"/>
+  </g>
+</svg>

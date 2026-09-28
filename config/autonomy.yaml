@@ -1,0 +1,23 @@
+# How much the AI decides on its own (PAPER only; LIVE is always supervised).
+# paper_autonomous: the AI sizes and times entries inside the envelope, macro
+# windows are context, the critic vetoes only hard contradictions and changes
+# that pass replay + out-of-sample + shadow sessions are promoted automatically.
+# supervised: macro gate blocks, any critic REVISE blocks, every change needs you.
+#
+# The envelope is the hard rail: neither the AI nor the app can set a value
+# outside it. Only a human editing this file can widen it.
+autonomy:
+  mode: paper_autonomous
+  auto_promote_paper: true
+  shadow_sessions_before_promotion: 5
+  envelope:
+    base_risk_percent: {minimum: 0.05, maximum: 1.0}
+    daily_loss_percent: {minimum: 0.25, maximum: 3}
+    weekly_loss_percent: {minimum: 0.5, maximum: 10}
+    max_account_drawdown_percent: {minimum: 2, maximum: 20}
+    max_trades_per_day: {minimum: 1, maximum: 20}
+    opening_no_trade_minutes: {minimum: 0, maximum: 30}
+    eod_flatten_minutes_before_close: {minimum: 5, maximum: 60}
+    macro_pre_block_minutes: {minimum: 0, maximum: 60}
+    macro_post_cooldown_minutes: {minimum: 0, maximum: 60}
+    max_profit_giveback_percent: {minimum: 20, maximum: 60}

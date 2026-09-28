@@ -1,0 +1,67 @@
+name: Bug report
+description: Something does not work as documented.
+title: "[bug] "
+labels: [bug, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. **Do not paste API keys, broker account IDs, e-mail
+        addresses, or files from your data folder.** Security problems go through
+        "Report a vulnerability" in the Security tab, not here.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. ...
+        2. ...
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options:
+        - Python core (engine, agents, risk, broker)
+        - Desktop app (macOS)
+        - CLI / doctor
+        - Docker
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: "0.2.0 or a commit SHA"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: "macOS 15.x, Apple Silicon / Python 3.12 / Docker"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Relevant log lines with any identifiers you consider private removed.
+      render: text
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: This happened in PAPER mode (LIVE is locked and not supported).
+          required: true
+        - label: I removed secrets and personal data from this report.
+          required: true

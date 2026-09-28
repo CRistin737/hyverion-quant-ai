@@ -1,0 +1,19 @@
+ai:
+  primary_provider: disabled
+  primary_auth_mode: subscription
+  request_timeout_seconds: 180
+  max_schema_retries: 1
+  fallback_providers: []
+  # Model per role for the primary subscription (null = the CLI's default).
+  # Sonnet reads and summarises (most calls); Opus decides and improves.
+  models:
+    analysis: claude-sonnet-5
+    decision: claude-opus-5-5
+    improvement: claude-opus-5-5
+  # Optional operator-entered limits. Leave null when the provider does not
+  # expose an official quota API; the UI will show UNKNOWN instead of guessing.
+  provider_limits:
+    anthropic: {context_window: null, session_limit: null, four_hour_limit: null, weekly_limit: null}
+    openai: {context_window: null, session_limit: null, four_hour_limit: null, weekly_limit: null}
+    xai: {context_window: null, session_limit: null, four_hour_limit: null, weekly_limit: null}
+    gemini: {context_window: null, session_limit: null, four_hour_limit: null, weekly_limit: null}

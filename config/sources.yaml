@@ -1,0 +1,93 @@
+# Source trust registry (§136, §137). Versioned: bump `version` on any change.
+#
+# access:
+#   api   – documented API; its own terms apply (no robots.txt check)
+#   feed  – file or feed published for download (ICS/RSS/JSON)
+#   page  – HTML page read politely (robots.txt must allow it)
+# key: keychain entry name, or null when the source is keyless.
+# All sources here are free. Terms were read on `terms_checked_at`; a source is
+# never used for redistribution, only for this operator's own decisions.
+version: "2026-09-28.1"
+sources:
+  - id: alpaca-market-data
+    name: Alpaca Market Data (IEX)
+    category: LICENSED_WIRE
+    access: api
+    hosts: [data.alpaca.markets, stream.data.alpaca.markets]
+    key: broker:alpaca_paper:key_id
+    purpose: Precios, barras y cotizaciones de QQQ y de los componentes del Nasdaq-100.
+    terms_url: https://alpaca.markets/disclosures
+    terms_checked_at: "2026-09-27"
+  - id: alpaca-news
+    name: Alpaca News (Benzinga)
+    category: LICENSED_WIRE
+    access: api
+    hosts: [data.alpaca.markets]
+    key: broker:alpaca_paper:key_id
+    purpose: Noticias de QQQ y de sus componentes.
+    terms_url: https://alpaca.markets/disclosures
+    terms_checked_at: "2026-09-27"
+  - id: alpaca-options
+    name: Alpaca Options (feed indicativo)
+    category: LICENSED_WIRE
+    access: api
+    hosts: [data.alpaca.markets]
+    key: broker:alpaca_paper:key_id
+    purpose: Volatilidad implícita, skew y movimiento esperado de QQQ. Solo sensor.
+    terms_url: https://alpaca.markets/disclosures
+    terms_checked_at: "2026-09-27"
+  - id: sec-edgar
+    name: SEC EDGAR
+    category: OFFICIAL_REGULATOR
+    access: api
+    hosts: [data.sec.gov, www.sec.gov]
+    key: data:contact_email
+    purpose: Presentaciones 8-K/10-Q/10-K de los componentes y cartera trimestral oficial de QQQ (N-PORT).
+    terms_url: https://www.sec.gov/about/developer-resources
+    terms_checked_at: "2026-09-27"
+  - id: fed-calendar
+    name: Reserva Federal · calendario
+    category: OFFICIAL_REGULATOR
+    access: feed
+    hosts: [www.federalreserve.gov]
+    key: null
+    purpose: Reuniones y ruedas de prensa del FOMC, actas, Beige Book, discursos y comparecencias.
+    terms_url: https://www.federalreserve.gov/disclaimer.htm
+    terms_checked_at: "2026-09-27"
+  - id: bls-schedule
+    name: BLS · calendario de publicaciones
+    category: OFFICIAL_REGULATOR
+    access: feed
+    hosts: [www.bls.gov]
+    # BLS only serves automated clients that identify themselves with an email.
+    key: data:contact_email
+    purpose: Fechas y horas de CPI, PPI, empleo (NFP), JOLTS.
+    terms_url: https://www.bls.gov/bls/linksite.htm
+    terms_checked_at: "2026-09-27"
+  - id: bea-schedule
+    name: BEA · calendario de publicaciones
+    category: OFFICIAL_REGULATOR
+    access: page
+    hosts: [www.bea.gov]
+    key: null
+    purpose: Fechas y horas de PIB y PCE (ingresos y gastos personales).
+    terms_url: https://www.bea.gov/about/policies-and-information/privacy-and-security
+    terms_checked_at: "2026-09-27"
+  - id: fred
+    name: FRED (Fed de San Luis)
+    category: OFFICIAL_REGULATOR
+    access: api
+    hosts: [api.stlouisfed.org]
+    key: data:fred:api_key
+    purpose: Tipos a 2 y 10 años, pendiente de la curva, dólar amplio y VIX (cierre diario).
+    terms_url: https://fred.stlouisfed.org/docs/api/terms_of_use.html
+    terms_checked_at: "2026-09-27"
+  - id: finnhub-earnings
+    name: Finnhub · calendario de resultados
+    category: AGGREGATOR
+    access: api
+    hosts: [finnhub.io]
+    key: data:finnhub:api_key
+    purpose: Fechas de resultados de los componentes del Nasdaq-100 (antes o después del mercado).
+    terms_url: https://finnhub.io/terms-of-service
+    terms_checked_at: "2026-09-27"

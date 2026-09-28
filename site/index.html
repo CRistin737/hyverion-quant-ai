@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hyverion Quant AI</title>
+  <meta name="description" content="An open-source AI trading lab for QQQ: AI agents analyze, a deterministic risk engine decides, and every change proves itself on Alpaca Paper first.">
+  <meta name="color-scheme" content="dark light">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hyverion Quant AI">
+  <meta property="og:description" content="An AI trading lab that proves itself on paper first. AI agents analyze QQQ, a deterministic risk engine has the final word.">
+  <meta property="og:image" content="https://cristin737.github.io/hyverion-quant-ai/assets/inicio.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main" data-es="Saltar al contenido">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="./" aria-label="Hyverion Quant AI, home">
+        <img src="assets/icon.svg" width="28" height="28" alt="">
+        <span>Hyverion Quant AI</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav">
+          <li><a href="https://github.com/CRistin737/hyverion-quant-ai">GitHub</a></li>
+          <li><a href="https://github.com/CRistin737/hyverion-quant-ai#readme" data-es="Documentación">Docs</a></li>
+          <li><a href="https://github.com/CRistin737/hyverion-quant-ai/blob/main/LICENSE" data-es="Licencia">License</a></li>
+          <li><button class="lang" type="button" aria-label="Ver en español">ES</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span><span data-es="Código abierto · Solo paper trading">Open source · Paper trading only</span></p>
+      <h1 id="hero-title" data-es="Un laboratorio de trading con IA que primero se demuestra en paper">An AI trading lab that proves itself on paper first</h1>
+      <p class="lede" data-es="Agentes de IA analizan QQQ, un motor de riesgo determinista tiene la última palabra y cada mejora se valida antes de promoverse.">AI agents analyze QQQ, a deterministic risk engine has the final word, and every improvement is validated before it is promoted.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://github.com/CRistin737/hyverion-quant-ai" data-es="Clonar en GitHub">Clone on GitHub</a>
+        <a class="btn btn-secondary" href="https://github.com/CRistin737/hyverion-quant-ai/releases/latest" data-es="Descargar para macOS">Download for macOS</a>
+      </div>
+    </section>
+
+    <section class="wrap features" aria-labelledby="features-title">
+      <h2 id="features-title" class="visually-hidden" data-es="Características">Features</h2>
+      <ul class="cards">
+        <li class="card">
+          <h3 data-es="Agentes de IA">AI agents</h3>
+          <p data-es="El análisis corre en Sonnet y las decisiones en Opus, a través de tu propia suscripción de Claude o Codex. Un crítico revisa cada propuesta.">Analysis runs on Sonnet and decisions on Opus, through your own Claude or Codex subscription. A critic reviews every proposal.</p>
+        </li>
+        <li class="card">
+          <h3 data-es="Riesgo determinista">Deterministic risk</h3>
+          <ul class="checks">
+            <li data-es="Perfiles de riesgo en % del capital">Risk profiles in % of equity</li>
+            <li data-es="Stop nativo del bróker en cada posición">Native broker stop on every position</li>
+            <li data-es="Límite de pérdida semanal y stop por drawdown">Weekly loss limit and drawdown stop</li>
+            <li data-es="Cierre de emergencia de todas las posiciones">Emergency flatten</li>
+          </ul>
+        </li>
+        <li class="card">
+          <h3 data-es="Paper sobre QQQ">Paper on QQQ</h3>
+          <p data-es="Opera en Alpaca Paper durante una campaña de un año. Solo se automejora tras superar la validación con replay, fuera de muestra y en sombra.">Trades on Alpaca Paper over a year-long campaign. It improves itself only after passing replay, out-of-sample and shadow validation.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="wrap shot" aria-labelledby="shot-title">
+      <h2 id="shot-title" class="section-title" data-es="La app">The app</h2>
+      <figure>
+        <img src="assets/inicio.png" width="1440" height="900" loading="lazy" decoding="async"
+             alt="Hyverion Quant AI home screen (Spanish UI): Alpaca Paper equity chart, protection gauges for drawdown, daily loss and AI usage, and the last decision traced from data through agents, critic and risk to execution."
+             data-es-alt="Pantalla de inicio de Hyverion Quant AI: gráfico del patrimonio en Alpaca Paper, indicadores de protección de drawdown, pérdida diaria y uso de IA, y la última decisión trazada desde los datos, los agentes, el crítico y el riesgo hasta la ejecución.">
+      </figure>
+    </section>
+
+    <section class="wrap start" aria-labelledby="start-title">
+      <h2 id="start-title" class="section-title" data-es="Primeros pasos">Get started</h2>
+      <div class="start-grid">
+        <div class="code">
+          <div class="code-bar">
+            <span>Terminal</span>
+            <button class="copy" type="button" data-target="install-cmd" data-es="Copiar">Copy</button>
+          </div>
+          <pre><code id="install-cmd">git clone https://github.com/CRistin737/hyverion-quant-ai.git
+cd hyverion-quant-ai
+uv sync
+cd app &amp;&amp; pnpm install &amp;&amp; pnpm tauri dev</code></pre>
+          <p class="copy-status" role="status" aria-live="polite"></p>
+        </div>
+        <div class="reqs">
+          <h3 data-es="Requisitos">Requirements</h3>
+          <ul>
+            <li>macOS 14+</li>
+            <li>Python 3.12 + uv</li>
+            <li>Node 22 + pnpm</li>
+            <li>Rust (stable)</li>
+            <li data-es="Una suscripción de Claude o Codex">A Claude or Codex subscription</li>
+            <li data-es="Una cuenta gratuita de Alpaca Paper">A free Alpaca Paper account</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" aria-labelledby="risk-title">
+      <div class="disclaimer">
+        <h2 id="risk-title" data-es="Aviso de riesgo">Risk disclaimer</h2>
+        <p data-es="Hyverion Quant AI es software experimental y no es asesoría financiera. Opera solo en paper trading; el modo LIVE está bloqueado. Se entrega «tal cual», sin garantía de ningún tipo. Los resultados pasados, simulados o en paper no predicen resultados futuros. Operar en los mercados implica riesgo de pérdida.">Hyverion Quant AI is experimental software and is not financial advice. It trades on paper only; LIVE mode is locked. It is provided "as is", without warranty of any kind. Past, simulated or paper results do not predict future results. Trading involves risk of loss.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <p><span data-es="© 2026 Cristian Santos · Apache-2.0 · Hyverion es una marca de su titular">© 2026 Cristian Santos · Apache-2.0 · Hyverion is a trademark of its owner</span></p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/CRistin737/hyverion-quant-ai/blob/main/LICENSE">LICENSE</a></li>
+        <li><a href="https://github.com/CRistin737/hyverion-quant-ai/blob/main/TRADEMARKS.md">TRADEMARKS.md</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

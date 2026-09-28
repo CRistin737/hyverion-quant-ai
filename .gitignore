@@ -1,0 +1,43 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+config/local.yaml
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+build/
+logs/*.log
+data/*.db
+data/*.db-*
+data/parquet/**/*.parquet
+data/knowledge/
+data/models/
+!.gitkeep
+.codex/
+auth.json
+
+# Local-only: third-party design references and vendored dev skills
+references/
+.claude/skills/
+
+# Local backups (database/config snapshots)
+backups/
+
+# Never versioned: personal state, exports and scratch files
+*.bak
+*.sqlite
+*.sqlite3
+*.db
+*.db-*
+config/local*.yaml
+exports/
+scratch/
+.claude/settings.local.json

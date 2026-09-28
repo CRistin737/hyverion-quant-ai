@@ -1,0 +1,36 @@
+config_version: 2
+app:
+  environment: development
+  log_level: INFO
+  timezone: UTC
+database:
+  url: sqlite+aiosqlite:///data/trading_bot.db
+  parquet_root: data/parquet
+trading:
+  mode: paper
+  asset_class: us_equity
+  # QQQ is the only executable instrument; everything else is observation only.
+  primary_instrument: QQQ
+  live_trading: false
+  shadow_trading: true
+  operating_region: US
+  allowed_symbols: [QQQ]
+  target_warning_percent: 1.0
+  target_critical_percent: 2.0
+broker:
+  # simulator = internal paper fills. alpaca = Alpaca PAPER account (owner opt-in).
+  provider: simulator
+  environment: paper
+market_data:
+  provider: alpaca
+  feed: iex
+  stale_after_seconds: 10
+  max_reconnect_delay_seconds: 60
+external_data:
+  news_provider: disabled
+  social_provider: disabled
+  collection_interval_seconds: 300
+  collection_max_backoff_seconds: 3600
+  # Keep empty until each feed has a documented ToS/robots review.
+  news_feeds: {}
+  news_reviewed_sources: []

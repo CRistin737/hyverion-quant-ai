@@ -1,0 +1,22 @@
+# The owner reviews and approves every change. With "Require review from Code
+# Owners" enabled on main (see docs/MAINTAINERS.md), nothing merges without
+# @CRistin737. The explicit lines below mark the risk-critical paths.
+
+*                                @CRistin737
+
+# Hard rails: deterministic risk, the only order-submitting component, autonomy envelope.
+/src/trading_bot/risk/           @CRistin737
+/src/trading_bot/broker/         @CRistin737
+/config/autonomy.yaml            @CRistin737
+/config/risk.yaml                @CRistin737
+/AGENTS.md                       @CRistin737
+
+# Secrets and privacy boundary.
+/src/trading_bot/security/       @CRistin737
+/scripts/privacy_check.py        @CRistin737
+
+# CI, release, and repository governance.
+/.github/                        @CRistin737
+/LICENSE                         @CRistin737
+/NOTICE                          @CRistin737
+/TRADEMARKS.md                   @CRistin737

@@ -1,0 +1,16 @@
+strategies:
+  # QQQ migration: one session strategy runs in paper first; the others stay off
+  # until their replay and paper evidence justify enabling them (§5).
+  enabled: [trend_pullback]
+  # v2: derivatives removed (QQQ migration); its 0.04 moved to regime.
+  signal_weights_version: v2
+  signal_weights:
+    technical: 0.24
+    regime: 0.20
+    liquidity: 0.14
+    risk_reward: 0.14
+    news: 0.06
+    sentiment: 0.04
+    historical_expectancy: 0.08
+    data_freshness: 0.06
+    agent_agreement: 0.04

@@ -1,0 +1,21 @@
+Hyverion Quant AI
+Copyright 2026 Cristian Santos
+
+This product includes software developed by third parties:
+
+* TradingView Lightweight Charts(TM) (npm package "lightweight-charts")
+  Copyright (c) TradingView, Inc. https://www.tradingview.com/
+  Licensed under the Apache License, Version 2.0.
+  Attribution required: charts are powered by TradingView Lightweight Charts,
+  https://www.tradingview.com/
+
+* Geist and Geist Mono fonts (npm packages "@fontsource-variable/geist" and
+  "@fontsource-variable/geist-mono")
+  Copyright 2024 The Geist Project Authors (https://github.com/vercel/geist-font)
+  Licensed under the SIL Open Font License, Version 1.1.
+
+Other dependencies (pinned in uv.lock, app/pnpm-lock.yaml and
+app/src-tauri/Cargo.lock) are distributed under their own licenses.
+
+"Hyverion" and the Hyverion logo are not licensed under the Apache License;
+see TRADEMARKS.md.

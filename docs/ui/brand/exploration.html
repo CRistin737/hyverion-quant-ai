@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Hyverion — Brand exploration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0E0F11; --s1:#141518; --s2:#1A1C20; --s3:#22252A;
+    --line:#26292F; --t1:#ECEEF1; --t2:#A3A8B2; --t3:#6C727D;
+    --pos:#3FCF8E; --neg:#F0616D;
+    --accent:#FFB224;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--bg);color:var(--t1);font:14px/1.5 Geist,system-ui,sans-serif;padding:40px 48px 80px;-webkit-font-smoothing:antialiased}
+  h1{font-size:28px;font-weight:600;letter-spacing:-.02em}
+  h2{font-size:18px;font-weight:600;letter-spacing:-.01em;margin:56px 0 4px}
+  p.lead{color:var(--t2);max-width:70ch;margin-top:8px}
+  .mono{font-family:"Geist Mono",ui-monospace,monospace;font-feature-settings:"tnum"}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:20px;border:1px solid var(--line)}
+  .cell{background:var(--s1);padding:28px;display:flex;flex-direction:column;gap:22px}
+  .tag{font-size:12px;color:var(--t3)}
+  .tag b{color:var(--t1);font-weight:600;font-size:15px;display:block;margin-bottom:2px}
+  .icons{display:flex;gap:16px;align-items:end}
+  .appicon{width:104px;height:104px;border-radius:24px;background:linear-gradient(180deg,#1C1E22,#101114);display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.06)}
+  .appicon.light{background:linear-gradient(180deg,#F7F7F5,#E9E9E6)}
+  .appicon svg{width:62px;height:62px}
+  .small svg{width:20px;height:20px}
+  .wordmark{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.015em;font-size:20px}
+  .wordmark svg{width:26px;height:26px}
+  .wordmark span.q{color:var(--t3);font-weight:500}
+  .onlight{background:#F4F4F2;color:#111;padding:14px 16px;border-radius:6px}
+  .onlight span.q{color:#6b6b6b}
+  /* accent strips */
+  .acc{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:20px}
+  .ui{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--bg)}
+  .ui .top{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--s1);border-bottom:1px solid var(--line)}
+  .ui .body{display:grid;grid-template-columns:132px 1fr;min-height:250px}
+  .ui nav{background:var(--s1);border-right:1px solid var(--line);padding:10px 8px;display:flex;flex-direction:column;gap:2px}
+  .ui nav a{font-size:12.5px;color:var(--t2);padding:6px 8px;border-radius:4px;display:flex;gap:8px;align-items:center}
+  .ui nav a.on{background:var(--s3);color:var(--t1)}
+  .ui nav a.on i{background:var(--a)}
+  .ui nav i{width:6px;height:6px;border-radius:2px;background:var(--t3)}
+  .ui main{padding:14px 16px;display:flex;flex-direction:column;gap:14px}
+  .row{display:flex;gap:28px}
+  .m .l{font-size:11.5px;color:var(--t3)}
+  .m .v{font-size:20px;font-weight:500;letter-spacing:-.01em}
+  .m .d{font-size:11.5px}
+  .pos{color:var(--pos)} .neg{color:var(--neg)}
+  .btn{font:500 12.5px Geist;height:28px;padding:0 12px;border-radius:4px;border:0;background:var(--a);color:#111}
+  .btn.g{background:transparent;color:var(--t1);box-shadow:inset 0 0 0 1px var(--line)}
+  .mode{font:500 11px "Geist Mono";padding:3px 7px;border-radius:3px;color:var(--a);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--a) 45%,transparent)}
+  .live{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--a);margin-right:6px}
+  table{width:100%;border-collapse:collapse;font-size:12.5px}
+  th{font-weight:500;color:var(--t3);text-align:left;padding:5px 0;border-bottom:1px solid var(--line)}
+  td{padding:6px 0;border-bottom:1px solid #1d1f24}
+  td.n,th.n{text-align:right}
+  .sw{display:flex;gap:6px;margin-top:10px}
+  .sw span{flex:1;height:22px;border-radius:3px}
+  .accname{margin-top:10px;font-size:13px}
+  .accname b{font-weight:600}
+</style>
+</head>
+<body>
+<h1>Hyverion Quant AI: brand exploration</h1>
+<p class="lead">Three symbol directions and three accent options. The PnL colours (green/red) stay <b>separate</b> from the accent in every option, so the brand never means "profit". Pick one symbol and one accent.</p>
+
+<h2>Symbols</h2>
+<p class="lead">Each one at app-icon size (dark and light), as a 20&nbsp;px favicon, and as a wordmark.</p>
+
+<div class="grid">
+  <!-- A: Step H -->
+  <div class="cell">
+    <div class="tag"><b>A · Step</b>An H whose crossbar is a stepped price level: the two stems are support and resistance, and the step is a breakout. Precise and structural.</div>
+    <div class="icons">
+      <div class="appicon"><svg viewBox="0 0 64 64" fill="none"><path d="M14 8v48M50 8v48" stroke="#ECEEF1" stroke-width="7" stroke-linecap="square"/><path d="M14 38h14V26h22" stroke="var(--accent)" stroke-width="7" stroke-linejoin="miter" stroke-linecap="square"/></svg></div>
+      <div class="appicon light"><svg viewBox="0 0 64 64" fill="none"><path d="M14 8v48M50 8v48" stroke="#141518" stroke-width="7" stroke-linecap="square"/><path d="M14 38h14V26h22" stroke="#141518" stroke-width="7" stroke-linecap="square"/></svg></div>
+      <div class="small"><svg viewBox="0 0 64 64" fill="none"><path d="M14 8v48M50 8v48" stroke="#ECEEF1" stroke-width="9" stroke-linecap="square"/><path d="M14 38h14V26h22" stroke="var(--accent)" stroke-width="9" stroke-linecap="square"/></svg></div>
+    </div>
+    <div class="wordmark"><svg viewBox="0 0 64 64" fill="none"><path d="M14 8v48M50 8v48" stroke="#ECEEF1" stroke-width="8" stroke-linecap="square"/><path d="M14 38h14V26h22" stroke="var(--accent)" stroke-width="8" stroke-linecap="square"/></svg>Hyverion <span class="q">Quant AI</span></div>
+    <div class="wordmark onlight"><svg viewBox="0 0 64 64" fill="none"><path d="M14 8v48M50 8v48" stroke="#111" stroke-width="8" stroke-linecap="square"/><path d="M14 38h14V26h22" stroke="#111" stroke-width="8" stroke-linecap="square"/></svg>Hyverion <span class="q">Quant AI</span></div>
+  </div>
+
+  <!-- B: Horizon -->
+  <div class="cell">
+    <div class="tag"><b>B · Horizon</b>Hyperion, the titan of light: a sun cut by the horizon, which reads as a price line. Calm and memorable, but more abstract.</div>
+    <div class="icons">
+      <div class="appicon"><svg viewBox="0 0 64 64" fill="none"><path d="M12 40a20 20 0 0 1 40 0" stroke="var(--accent)" stroke-width="6"/><path d="M4 40h56" stroke="#ECEEF1" stroke-width="6"/><path d="M18 50h28" stroke="#ECEEF1" stroke-opacity=".45" stroke-width="6"/></svg></div>
+      <div class="appicon light"><svg viewBox="0 0 64 64" fill="none"><path d="M12 40a20 20 0 0 1 40 0" stroke="#141518" stroke-width="6"/><path d="M4 40h56" stroke="#141518" stroke-width="6"/><path d="M18 50h28" stroke="#141518" stroke-opacity=".4" stroke-width="6"/></svg></div>
+      <div class="small"><svg viewBox="0 0 64 64" fill="none"><path d="M12 40a20 20 0 0 1 40 0" stroke="var(--accent)" stroke-width="8"/><path d="M4 40h56" stroke="#ECEEF1" stroke-width="8"/></svg></div>
+    </div>
+    <div class="wordmark"><svg viewBox="0 0 64 64" fill="none"><path d="M12 40a20 20 0 0 1 40 0" stroke="var(--accent)" stroke-width="7"/><path d="M4 40h56" stroke="#ECEEF1" stroke-width="7"/><path d="M18 51h28" stroke="#ECEEF1" stroke-opacity=".45" stroke-width="7"/></svg>Hyverion <span class="q">Quant AI</span></div>
+    <div class="wordmark onlight"><svg viewBox="0 0 64 64" fill="none"><path d="M12 40a20 20 0 0 1 40 0" stroke="#111" stroke-width="7"/><path d="M4 40h56" stroke="#111" stroke-width="7"/><path d="M18 51h28" stroke="#111" stroke-opacity=".4" stroke-width="7"/></svg>Hyverion <span class="q">Quant AI</span></div>
+  </div>
+
+  <!-- C: Candle H -->
+  <div class="cell">
+    <div class="tag"><b>C · Candle</b>An H made of three candles: two tall stems and a short central body that forms the crossbar. It reads as trading immediately, and is more literal.</div>
+    <div class="icons">
+      <div class="appicon"><svg viewBox="0 0 64 64" fill="none"><rect x="10" y="10" width="10" height="44" fill="#ECEEF1"/><rect x="44" y="10" width="10" height="44" fill="#ECEEF1"/><path d="M32 18v28" stroke="var(--accent)" stroke-width="2.5"/><rect x="26" y="26" width="12" height="12" fill="var(--accent)"/></svg></div>
+      <div class="appicon light"><svg viewBox="0 0 64 64" fill="none"><rect x="10" y="10" width="10" height="44" fill="#141518"/><rect x="44" y="10" width="10" height="44" fill="#141518"/><path d="M32 18v28" stroke="#141518" stroke-width="2.5"/><rect x="26" y="26" width="12" height="12" fill="#141518"/></svg></div>
+      <div class="small"><svg viewBox="0 0 64 64" fill="none"><rect x="8" y="8" width="13" height="48" fill="#ECEEF1"/><rect x="43" y="8" width="13" height="48" fill="#ECEEF1"/><rect x="25" y="24" width="14" height="16" fill="var(--accent)"/></svg></div>
+    </div>
+    <div class="wordmark"><svg viewBox="0 0 64 64" fill="none"><rect x="10" y="10" width="10" height="44" fill="#ECEEF1"/><rect x="44" y="10" width="10" height="44" fill="#ECEEF1"/><path d="M32 18v28" stroke="var(--accent)" stroke-width="3"/><rect x="26" y="26" width="12" height="12" fill="var(--accent)"/></svg>Hyverion <span class="q">Quant AI</span></div>
+    <div class="wordmark onlight"><svg viewBox="0 0 64 64" fill="none"><rect x="10" y="10" width="10" height="44" fill="#111"/><rect x="44" y="10" width="10" height="44" fill="#111"/><path d="M32 18v28" stroke="#111" stroke-width="3"/><rect x="26" y="26" width="12" height="12" fill="#111"/></svg>Hyverion <span class="q">Quant AI</span></div>
+  </div>
+</div>
+
+<h2>Accent colour: in context</h2>
+<p class="lead">The accent is reserved for the primary action, the current selection, the "live" state and the mode. Profit and loss always use green/red.</p>
+
+<div class="acc">
+  <script>
+    const opts=[["#FFB224","Solar","Warm amber. Evokes Hyperion's light, never clashes with green/red PnL, and is uncommon in trading apps. Recommended."],
+                ["#C6F24E","Signal","Electric lime. High energy, very 'tech', but close to OpenReel and a near relative of profit green."],
+                ["#5CC8F0","Ion","Clear cyan. Calm and trustworthy, but more common (Binance/TradingView family)."]];
+    document.currentScript.insertAdjacentHTML('afterend',opts.map(([c,n,d])=>`
+    <div>
+      <div class="ui" style="--a:${c}">
+        <div class="top"><div class="wordmark" style="font-size:14px;gap:8px"><svg viewBox="0 0 64 64" style="width:18px;height:18px" fill="none"><path d="M14 8v48M50 8v48" stroke="#ECEEF1" stroke-width="8" stroke-linecap="square"/><path d="M14 38h14V26h22" stroke="${c}" stroke-width="8" stroke-linecap="square"/></svg>Hyverion</div><span class="mode"><span class="live"></span>PAPER</span></div>
+        <div class="body">
+          <nav><a class="on"><i></i>Inicio</a><a><i></i>Trading</a><a><i></i>Inteligencia</a><a><i></i>Riesgo</a><a><i></i>Laboratorio</a><a><i></i>Ajustes</a></nav>
+          <main>
+            <div class="row">
+              <div class="m"><div class="l">Equity</div><div class="v mono">$10,482.17</div><div class="d mono pos">+$82.17 hoy</div></div>
+              <div class="m"><div class="l">Drawdown</div><div class="v mono">1.8%</div><div class="d mono" style="color:var(--t3)">límite 5.0%</div></div>
+            </div>
+            <table><tr><th>Posición</th><th class="n">Qty</th><th class="n">PnL</th></tr>
+              <tr><td class="mono">BTC/USDT</td><td class="n mono">0.0142</td><td class="n mono pos">+41.20</td></tr>
+              <tr><td class="mono">ETH/USDT</td><td class="n mono">0.310</td><td class="n mono neg">−12.08</td></tr></table>
+            <div style="display:flex;gap:8px"><button class="btn">Resolver operación</button><button class="btn g">Ver trazas</button></div>
+          </main>
+        </div>
+      </div>
+      <div class="sw"><span style="background:${c}"></span><span style="background:var(--pos)"></span><span style="background:var(--neg)"></span><span style="background:var(--s3)"></span></div>
+      <div class="accname"><b>${n}</b> <span class="mono" style="color:var(--t3)">${c}</span><br><span style="color:var(--t2)">${d}</span></div>
+    </div>`).join(''));
+  </script>
+</div>
+</body>
+</html>

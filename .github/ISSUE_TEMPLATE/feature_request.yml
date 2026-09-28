@@ -1,0 +1,41 @@
+name: Feature request
+description: Suggest an improvement or a new capability.
+title: "[feature] "
+labels: [enhancement, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The owner decides the roadmap. Requests that relax a hard rail (see
+        AGENTS.md, "Hard rails") or enable LIVE trading will be declined.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What are you trying to do, and why is it hard today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: dropdown
+    id: hard-rails
+    attributes:
+      label: Does this touch a hard rail (risk limits, native stops, emergency stop, LIVE lock, autonomy envelope, secrets)?
+      options:
+        - "No"
+        - "Yes (explain below why it is safe)"
+    validations:
+      required: true
+  - type: textarea
+    id: justification
+    attributes:
+      label: Safety justification
+      description: Required if you answered "Yes" above.

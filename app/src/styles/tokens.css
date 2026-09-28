@@ -1,0 +1,126 @@
+/*
+ * Hyverion design tokens — single source of truth (docs/ui/DESIGN_SPEC.md).
+ * Semantic names only. Components never use raw hex values.
+ */
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #0e0f11;
+  --surface-1: #131417;
+  --surface-2: #191b1f;
+  --surface-3: #22252a;
+  --surface-hover: #1c1e23;
+  --surface-active: #262930;
+  --surface-floating: #1b1d21;
+
+  --border-subtle: #1e2025;
+  --border-default: #2a2d34;
+  --border-strong: #3a3e46;
+
+  --text-primary: #eceef1;
+  --text-secondary: #a7acb5;
+  --text-muted: #878d98;
+  --text-disabled: #50555e;
+
+  --accent: #f4f5f7;
+  --accent-hover: #ffffff;
+  --accent-pressed: #d9dce1;
+  --on-accent: #0e0f11;
+  --accent-text: #ffffff;
+  --accent-soft: rgb(255 255 255 / 0.08);
+
+  --positive: #36d39a;
+  --negative: #f0616d;
+  --warning: #f2b544;
+  --danger: #f0616d;
+  --info: #6bb6f2;
+  --positive-soft: rgb(54 211 154 / 0.12);
+  --negative-soft: rgb(240 97 109 / 0.12);
+  --warning-soft: rgb(242 181 68 / 0.12);
+  --info-soft: rgb(107 182 242 / 0.12);
+
+  --focus-ring: #f4f5f7;
+  --elevation-float: 0 8px 24px rgb(0 0 0 / 0.36), 0 0 0 1px var(--border-default);
+  --selection: rgb(255 255 255 / 0.22);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --background: #f6f6f4;
+  --surface-1: #ffffff;
+  --surface-2: #f0f0ed;
+  --surface-3: #e6e6e2;
+  --surface-hover: #ededea;
+  --surface-active: #e1e1dc;
+  --surface-floating: #ffffff;
+
+  --border-subtle: #e9e9e5;
+  --border-default: #dadad5;
+  --border-strong: #c3c3bd;
+
+  --text-primary: #141518;
+  --text-secondary: #4a4f57;
+  --text-muted: #5b606a;
+  --text-disabled: #a5a8ae;
+
+  --accent: #141518;
+  --accent-hover: #000000;
+  --accent-pressed: #2a2d34;
+  --on-accent: #ffffff;
+  --accent-text: #141518;
+  --accent-soft: rgb(20 21 24 / 0.07);
+
+  --positive: #07734f;
+  --negative: #b3263a;
+  --warning: #7f5000;
+  --danger: #b3263a;
+  --info: #18589a;
+  --positive-soft: rgb(14 154 106 / 0.1);
+  --negative-soft: rgb(210 58 72 / 0.1);
+  --warning-soft: rgb(168 106 0 / 0.1);
+  --info-soft: rgb(31 111 184 / 0.1);
+
+  --focus-ring: #141518;
+  --elevation-float: 0 8px 24px rgb(20 21 24 / 0.1), 0 0 0 1px var(--border-default);
+  --selection: rgb(20 21 24 / 0.16);
+}
+
+:root {
+  /* Layout */
+  --sidebar-width: 224px;
+  --sidebar-collapsed: 76px;
+  --topbar-height: 48px;
+  --statusbar-height: 28px;
+  --content-max: 1920px;
+
+  /* Controls */
+  --control-sm: 28px;
+  --control-md: 32px;
+  --control-lg: 40px;
+  --row-height: 32px;
+
+  /* Motion */
+  --duration-fast: 120ms;
+  --duration-normal: 200ms;
+  --duration-slow: 320ms;
+  --motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* Layers */
+  --z-sticky: 10;
+  --z-sidebar: 20;
+  --z-sheet: 60;
+  --z-modal: 70;
+  --z-toast: 80;
+  --z-palette: 90;
+  /* Floating layers open from inside sheets, dialogs and the palette: always on top. */
+  --z-dropdown: 100;
+  --z-popover: 110;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-normal: 1ms;
+    --duration-slow: 1ms;
+  }
+}
